@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('', views.main_page, name='main_page'),
@@ -10,3 +12,6 @@ urlpatterns = [
     path('listing/<int:pk>/edit/', views.ListingUpdateView.as_view(), name='listing_update'),
     path('listing/<int:pk>/delete/', views.ListingDeleteView.as_view(), name='listing_delete'),
 ]
+
+urlpatterns.extend(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
+urlpatterns.extend(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

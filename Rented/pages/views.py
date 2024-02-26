@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from django.contrib.auth import get_user_model
+from .forms import ListingForm
 
 def main_page(request: HttpRequest) -> HttpResponse:
     context = {
@@ -58,7 +59,7 @@ def listing_available(request: HttpRequest, pk:int) -> HttpResponse:
 class ListingCreateView(LoginRequiredMixin, generic.CreateView):
     model = models.Listing
     template_name = 'listings/listing_create.html'
-    fields = ('name', )
+    form_class = ListingForm
 
     def get_success_url(self) -> str:
         messages.success(self.request, _('listing created successfully').capitalize())
@@ -75,7 +76,7 @@ class ListingUpdateView(
     ):
     model = models.Listing
     template_name = 'listings/listing_update.html'
-    fields = ('name', )
+    form_class = ListingForm
 
     def get_success_url(self) -> str:
         messages.success(self.request, _('listing updated successfully').capitalize())

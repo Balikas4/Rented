@@ -1,22 +1,41 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block title %}{{ block.super }} | {{ row }}{% endblock title %}
+{% block title %}{{ block.super }} | {{ listing.name }}{% endblock title %}
 {% block content %}
-<h1><a href="{% url "listing_available" listing.pk %}">
-    {% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}</a>
+  <h1>
+    <a href="{% url 'listing_available' listing.pk %}">
+      {% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}
+    </a>
     {{ listing.name }}
-</h1>
-<p>{% trans "Price" %}: {{ listing.price }}</p>
-<p>{{ listing.description }}</p>
-<p>{% trans "Created" %}: {{ listing.created_at }}, 
-    {% if listing.created_at != listing.updated_at %}
-        {% trans "updated" %}: {{ listing.updated_at }}
-    {% endif %}
-</p>
-{% if listing.owner == request.user %}
-    <p>
-        <a class="button" href="{% url "listing_update" listing.pk %}">{% trans "edit"|capfirst %}</a>
-        <a class="button" href="{% url "listing_delete" listing.pk %}">{% trans "delete"|capfirst %}</a>
-    </p>
+  </h1>
+  {% if listing.picture %}
+  <img src="{{ listing.picture.url }}" alt="{{ listing.name }}">
+{% else %}
+  <p>No picture available</p>
 {% endif %}
+  <p>{% trans "Price" %}: {{ listing.price }}</p>
+  <p>{{ listing.description }}</p>
+  <p>
+    {% trans "Created" %}: {{ listing.created_at }},
+    {% if listing.created_at != listing.updated_at %}
+      {% trans "Updated" %}: {{ listing.updated_at }}
+    {% endif %}
+  </p>
+  <p>
+    <a class="button" href="{% url 'listing_list' %}">
+      {% trans "Back"|capfirst %}
+    </a>
+    <a class="button" href="{% url 'listing_create' %}">
+      {% trans "Create new"|capfirst %}
+    </a>
+  {% if listing.owner == request.user %}
+      <a class="button" href="{% url 'listing_update' listing.pk %}">
+        {% trans "Edit"|capfirst %}
+      </a>
+      <a class="button" href="{% url 'listing_delete' listing.pk %}">
+        {% trans "Delete"|capfirst %}
+      </a>
+    </p>
+  {% endif %}
+  </p>
 {% endblock content %}
