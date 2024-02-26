@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}{% load i18n %}
 {% block title %}{{ block.super }} | {{ listing }}{% endblock title %}
 {% block content %}
 <h1>{% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}
