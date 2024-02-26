@@ -14,15 +14,9 @@
             <img src="{% static 'rented_logo.png' %}" alt="Rented Logo">
         </a>        
         <ul class="nav">
-            <li><a href="{% url 'main_page' %}">{% trans "main"|capfirst %}</a></li>
             <li><a href="{% url 'listing_list' %}">{% trans "listings"|capfirst %}</a></li>
         </ul>
-        <section class="messages">
-            {% for message in messages %}
-                <p class="message message-{{ message.tags }}">{{ message }}</p>
-            {% endfor %}
-        </section>
-        {% comment %} <ul class="nav nav-user">
+        <ul class="nav nav-user">
             {% if user.is_authenticated %}
                 <li><a href="{% url 'user_detail_current' %}">{{ user }}</a></li>
                 {% if user.is_superuser or user.is_staff %}
@@ -33,8 +27,13 @@
                 <li><a href="{% url 'login' %}">{% trans "log in"|capfirst %}</a></li>
                 <li><a href="{% url 'signup' %}">{% trans "sign up"|capfirst %}</a></li>
             {% endif %}
-        </ul> {% endcomment %}
+        </ul>
     </header>
+    <section class="messages">
+        {% for message in messages %}
+            <p class="message message-{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </section>
     <main>{% block content %}{% endblock content %}</main>
     <footer>
         {% block footer %}{% endblock footer %}
