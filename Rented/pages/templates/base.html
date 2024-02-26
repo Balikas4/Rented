@@ -1,0 +1,33 @@
+{% load static %}{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Rented{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <a href="{% url 'main_page' %}">
+            <img src="{% static 'rented_logo.png' %}" alt="Rented Logo">
+        </a>        
+        <ul class="nav">
+            <li><a href="{% url 'main_page' %}">{% trans "main"|capfirst %}</a></li>
+            <li><a href="{% url 'listing_list' %}">{% trans "listings"|capfirst %}</a></li>
+        </ul>
+        {% comment %} <ul class="nav nav-user">
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'user_detail_current' %}">{{ user }}</a></li>
+                {% if user.is_superuser or user.is_staff %}
+                    <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
+                {% endif %}
+                <li><form method="post" action="{% url "logout" %}">{% csrf_token %}<button type="submit">{% trans "log out"|capfirst %}</button></form></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">{% trans "log in"|capfirst %}</a></li>
+                <li><a href="{% url 'signup' %}">{% trans "sign up"|capfirst %}</a></li>
+            {% endif %}
+        </ul> {% endcomment %}
+    </header>
+    <main>{% block content %}{% endblock content %}
+</body>
+</html>

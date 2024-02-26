@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} | {{ listing }}{% endblock title %}
+{% block content %}
+<h1>{% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}
+    {{ listing.name }}</h1>
+<p>{{ listing.owner }}</p>
+<p>Created: {{ listing.created_at }}, 
+    {% if listing.created_at != listing.updated_at %}
+        updated: {{ listing.updated_at }}
+    {% endif %}
+</p>
+{% endblock content %}
