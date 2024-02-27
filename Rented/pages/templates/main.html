@@ -1,7 +1,17 @@
 {% extends "base.html" %}
-{% load static %}{% load i18n %}
+{% load i18n %} {% load static %}
+{% block title %}{% trans "Main Page" %}{% endblock title %}
 {% block content %}
-    <h1>Rented</h1>
-    <p>Users: {{ users_count }}</p>
-    <p>Listings: {{ listing_count }}</p>
+    <h1>{% trans "Shop" %}</h1>
+    {% for listing in listings %}
+        <div class="listings-container">
+            {% if listing.picture %}
+                <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" width="200" height="100" class="listing-image">
+            {% else %}
+                <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="100" class="listing-image">
+            {% endif %}
+            <a href="{% url 'listing_detail' pk=listing.pk %}"><p>{{ listing.name }}</p></a>
+            <p>{% trans "Price" %}: {{ listing.price }}</p>
+        </div>
+    {% endfor %}
 {% endblock content %}

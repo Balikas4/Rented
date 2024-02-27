@@ -12,4 +12,10 @@
     <p><a class="button" href="{% url "user_update" %}">{% trans "edit profile data" %}</a></p>
     <p>{% trans "e-mail"|capfirst %}: {{ object.email }}</p>
 {% endif %}
+{% with listing_count=object.listings.count %}
+    <p>{% trans "Number of Listings" %}: {{ listing_count }}</p>
+{% endwith %}
+{% with unavailable_listings_count=unavailable_listings_count %}
+    <p>{% trans "Number of Unavailable Listings" %}: {{ unavailable_listings_count }}</p>
+{% endwith %}
 {% endblock content %}

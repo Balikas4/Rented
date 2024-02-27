@@ -9,11 +9,13 @@ from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from django.contrib.auth import get_user_model
 from .forms import ListingForm
+from .models import Listing
 
 def main_page(request: HttpRequest) -> HttpResponse:
     context = {
         'listing_count': models.Listing.objects.count(),
         'users_count': models.get_user_model().objects.count(),
+        'listings' : Listing.objects.all(),
     }
     return render(request, 'main.html', context)
 

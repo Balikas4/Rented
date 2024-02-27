@@ -14,4 +14,7 @@
       <li>{% trans "No listings found" %}</li>
     {% endfor %}
   </ul>
+  <a class="button" href="{% url 'listing_create' %}">
+    {% trans "Create new"|capfirst %}
+  </a>
 {% endblock content %}

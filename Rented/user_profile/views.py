@@ -27,9 +27,12 @@ def user_detail(request: HttpRequest, username: str | None = None)  -> HttpRespo
         user = get_object_or_404(User, username=username)
     else:
         user = request.user
-    return render(request, 'user_profile/user_detail.html', {
+    unavailable_listings_count = user.listings.filter(is_available=False).count()
+    context = {
         'object': user,
-    })
+        'unavailable_listings_count': unavailable_listings_count,
+    }
+    return render(request, 'user_profile/user_detail.html', context)
 
 @login_required
 def user_update(request: HttpRequest) -> HttpResponse:

@@ -96,6 +96,7 @@ a {
 
 a:hover {
     color: #0055cc;
+    text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -187,3 +188,25 @@ ul.dashboard li .stat {
     border-radius: 5rem;
     min-width: 7rem;
 }
+
+.listings-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line if there's not enough space */
+    gap: 20px; /* Adjust the gap between items as needed */
+    background-color: #e4e4e4;
+    margin: 1rem 0px;
+}
+
+.listing-item {
+    border: 1px solid #ddd; /* Add borders or styling as needed */
+    padding: 10px;
+    width: calc(33.33% - 20px); /* Adjust the width based on the number of items you want in a row */
+    box-sizing: border-box;
+}
+
+.listing-image {
+    object-fit: cover; /* This property will make the image fill the specified dimensions without stretching */
+    width: 200px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+}
+
