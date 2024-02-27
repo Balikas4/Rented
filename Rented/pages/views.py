@@ -57,6 +57,12 @@ def listing_available(request: HttpRequest, pk:int) -> HttpResponse:
     if request.GET.get("next"):
         return redirect(request.GET.get("next"))
     return redirect(listing_list)
+
+
+def my_listings(request):
+    user_listings = Listing.objects.filter(owner=request.user)
+    return render(request, 'listings/my_listings.html', {'user_listings': user_listings})
+
     
 class ListingCreateView(LoginRequiredMixin, generic.CreateView):
     model = models.Listing

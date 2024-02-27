@@ -5,6 +5,8 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from . import forms
+from django.core.exceptions import ObjectDoesNotExist
+from .models import Profile
 
 def signup(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
@@ -12,7 +14,7 @@ def signup(request: HttpRequest) -> HttpResponse:
         if form.is_valid():
             form.save()
             messages.success(request, _("Thank you! You can log in now with your credentials."))
-            return redirect("index")
+            return redirect("main_page")
     else:
         form = forms.CreateUserForm()
     return render(request, 'user_profile/signup.html', {
@@ -36,17 +38,27 @@ def user_detail(request: HttpRequest, username: str | None = None)  -> HttpRespo
 
 @login_required
 def user_update(request: HttpRequest) -> HttpResponse:
+    try:
+        # Try to get the user's profile
+        profile = request.user.profile
+    except ObjectDoesNotExist:
+        # If the profile doesn't exist, create a new one
+        profile = Profile(user=request.user)
+        profile.save()
+
     if request.method == "POST":
         form_user = forms.UserForm(request.POST, instance=request.user)
-        form_profile = forms.ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        form_profile = forms.ProfileForm(request.POST, request.FILES, instance=profile)
         if form_user.is_valid() and form_profile.is_valid():
             form_user.save()
             form_profile.save()
-            messages.success(request, _("profile edited successfully").capitalize())
+            messages.success(request, _("Profile edited successfully").capitalize())
             return redirect('user_detail_current')
+
     else:
         form_user = forms.UserForm(instance=request.user)
-        form_profile = forms.ProfileForm(instance=request.user.profile)
+        form_profile = forms.ProfileForm(instance=profile)
+
     return render(request, 'user_profile/user_update.html', {
         'form_user': form_user,
         'form_profile': form_profile,

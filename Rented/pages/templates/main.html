@@ -11,7 +11,9 @@
                 <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="100" class="listing-image">
             {% endif %}
             <a href="{% url 'listing_detail' pk=listing.pk %}"><p>{{ listing.name }}</p></a>
-            <p>{% trans "Price" %}: {{ listing.price }}</p>
+            <p>{{ listing.price }} $ {% trans "per day" %}</p>
+            <p>{% trans "Uploaded by" %}: <a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p>
+            {% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}
         </div>
     {% endfor %}
 {% endblock content %}
