@@ -95,7 +95,7 @@ a {
 }
 
 a:hover {
-    color: #0055cc;
+    color: #04a81f;
     text-decoration: none;
 }
 
@@ -190,11 +190,17 @@ ul.dashboard li .stat {
 }
 
 .listings-container {
+    font-size: 80%;
     display: flex;
     flex-wrap: wrap; /* Allow items to wrap to the next line if there's not enough space */
-    gap: 20px; /* Adjust the gap between items as needed */
+    gap: 4px; /* Adjust the gap between items as needed */
     background-color: #e4e4e4;
-    margin: 1rem 0px;
+    margin: 4px 0px;
+    padding: 4px 4px 0px 4px;
+    min-height: 104px;
+    max-height: 110px;
+    text-align: justify;
+    align-items: center;
 }
 
 .listing-item {

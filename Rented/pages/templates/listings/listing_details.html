@@ -3,22 +3,20 @@
 {% block title %}{{ block.super }} | {{ listing.name }}{% endblock title %}
 {% block content %}
   <h1>
-    <a href="{% url 'listing_available' listing.pk %}">
       {% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}
-    </a>
     {{ listing.name }}
   </h1>
   {% if listing.picture %}
   <img src="{{ listing.picture.url }}" alt="{{ listing.name }}">
 {% else %}
-  <p>No picture available</p>
+  <p>{% trans "No picture available" %}</p>
 {% endif %}
   <p>{% trans "Price" %}: {{ listing.price }}</p>
   <p>{{ listing.description }}</p>
   <p>
     {% trans "Created" %}: {{ listing.created_at }},
     {% if listing.created_at != listing.updated_at %}
-      {% trans "Updated" %}: {{ listing.updated_at }}
+      <p>{% trans "Updated" %}: {{ listing.updated_at }}</p>
     {% endif %}
   </p>
   <p>
