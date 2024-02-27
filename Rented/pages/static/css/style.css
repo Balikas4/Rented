@@ -210,3 +210,7 @@ ul.dashboard li .stat {
     height: 100px; /* Adjust as needed */
 }
 
+.main-page-content{
+    padding: 10px;
+    text-align: center;
+}

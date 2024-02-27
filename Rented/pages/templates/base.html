@@ -15,8 +15,11 @@
             <img src="{% static 'rented_logo.png' %}" alt="Rented Logo">
         </a>        
         <ul class="nav">
+            <li><a href="{% url 'shop_page' %}">{% trans "shop"|capfirst %}</a></li>
+            {% if user.is_authenticated %}
             <li><a href="{% url 'my_listings' %}">{% trans "my listings"|capfirst %}</a></li>
             <li><a href="{% url 'listing_list' %}">{% trans "listings"|capfirst %}</a></li>
+            {% endif %}
         </ul>
         <ul class="nav nav-user">
             {% if user.is_authenticated %}

@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 {% load i18n %} {% load static %}
-{% block title %}{% trans "Main Page" %}{% endblock title %}
+{% block title %}{{ block.super }} {% trans "Main" %}{% endblock title %}
 {% block content %}
-    <h1>{% trans "Shop" %}</h1>
-    {% for listing in listings %}
-        <div class="listings-container">
-            {% if listing.picture %}
-                <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" width="200" height="100" class="listing-image">
-            {% else %}
-                <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="100" class="listing-image">
-            {% endif %}
-            <a href="{% url 'listing_detail' pk=listing.pk %}"><p>{{ listing.name }}</p></a>
-            <p>{{ listing.price }} $ {% trans "per day" %}</p>
-            <p>{% trans "Uploaded by" %}: <a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p>
-            {% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}
-        </div>
-    {% endfor %}
+<div class='main-page-content'>
+    <!-- Rented Logo -->
+    <img src="{% static 'icon.png' %}" alt="Rented Logo" class="logo">
+
+    <!-- About Us -->
+    <p>{% trans "Welcome to Rented, your go-to platform for item rental. We believe in making life more convenient by providing a platform where users can easily rent items they need for a short period, saving both money and resources." %}</p>
+
+    <!-- Our Vision -->
+    <p>{% trans "At Rented, we envision a world where sharing resources is a common practice, reducing waste and promoting a sustainable lifestyle. We strive to connect people and enable them to share items, fostering a sense of community and environmental responsibility." %}</p>
+ 
+    <!-- Our Stats -->
+    <p>{% trans "Listing count" %} {{ listing_count }}</p>
+    <p>{% trans "User count" %} {{ users_count }}</p>
+</div>
 {% endblock content %}

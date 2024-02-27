@@ -12,6 +12,7 @@ urlpatterns = [
     path('listing/<int:pk>/edit/', views.ListingUpdateView.as_view(), name='listing_update'),
     path('listing/<int:pk>/delete/', views.ListingDeleteView.as_view(), name='listing_delete'),
     path('my_listings/', views.my_listings , name="my_listings"),
+    path('shop/', views.shop_page, name='shop_page'),
 ]
 
 urlpatterns.extend(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
