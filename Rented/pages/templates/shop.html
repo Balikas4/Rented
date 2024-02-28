@@ -17,7 +17,8 @@
             <a href="{% url 'listing_detail' pk=listing.pk %}"><p>{{ listing.name }}</p></a>
             <p>{{ listing.price }} $ {% trans "per day" %}</p>
             <p>{% trans "Uploaded by" %}: <a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p>
-            {% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}
+            <p>{% trans "Brand" %}: {{ listing.brand }}</p>
+            <p>{% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}</p>
         </div>
     {% endfor %}
 {% endblock content %}

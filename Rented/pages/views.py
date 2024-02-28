@@ -93,7 +93,7 @@ class ListingUpdateView(
 
     def get_success_url(self) -> str:
         messages.success(self.request, _('listing updated successfully').capitalize())
-        return reverse('listing_list')
+        return reverse('my_listings')
 
     def test_func(self) -> bool | None:
         return self.get_object().owner == self.request.user

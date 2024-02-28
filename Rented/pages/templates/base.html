@@ -18,6 +18,7 @@
             <li><a href="{% url 'shop_page' %}">{% trans "shop"|capfirst %}</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'my_listings' %}">{% trans "my listings"|capfirst %}</a></li>
+            <li><a href="{% url 'offers:my_offers' %}">{% trans "my offers"|capfirst %}</a></li>
                 {% if  user.is_superuser%}
             <li><a href="{% url 'listing_list' %}">{% trans "listings"|capfirst %}</a></li>
                 {% endif %}

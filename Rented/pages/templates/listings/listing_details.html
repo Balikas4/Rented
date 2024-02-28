@@ -11,7 +11,7 @@
 {% else %}
   <p>{% trans "No picture available" %}</p>
 {% endif %}
-  <p>{% trans "Price" %}: {{ listing.price }}</p>
+  <p>{% trans "Price" %}: {{ listing.price }} {% trans "per day" %}</p>
   <p>{{ listing.description }}</p>
   <p>
     {% trans "Created" %}: {{ listing.created_at }},
@@ -20,7 +20,7 @@
     {% endif %}
   </p>
   <p>
-    <a class="button" href="{% url 'listing_list' %}">
+    <a class="button" href="{% url 'my_listings' %}">
       {% trans "Back"|capfirst %}
     </a>
     <a class="button" href="{% url 'listing_create' %}">
