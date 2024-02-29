@@ -1,4 +1,10 @@
+![Your Logo](Rented/pages/static/rented_logo.png)
+
 # Rented: Your Sustainable Item Rental Platform
+
+To run the platfrom you should install requirements.txt and run the server. <br>
+`pip install -r requirements.txt` <br>
+`./manage.py runserver`
 
 ## Overview
 
@@ -6,9 +12,9 @@ Welcome to Rented, your premier platform for item rental. Our mission is to simp
 
 ## Platform Features
 
-### 1. Item Variety
+### 1. User and admin accounts
 
-Rented provides a diverse range of items available for rent, ensuring that users can find what they need for various occasions and purposes.
+Rented provides a structure for platfrom to manage on different levels.
 
 ### 2. User-Friendly Experience
 
@@ -22,7 +28,7 @@ We are committed to promoting a sustainable lifestyle by encouraging the sharing
 
 1. **Browse Items:** Explore our catalog of items available for rent.
 
-2. **Select & Rent:** Choose the items you need and proceed with the rental process.
+2. **Select & Rent:** Choose the items you need and proceed with the offer process.
 
 3. **Community Sharing:** Join a community of like-minded individuals who believe in the power of sharing resources.
 
@@ -37,10 +43,6 @@ We are committed to promoting a sustainable lifestyle by encouraging the sharing
 ## Future Enhancements
 
 We are continuously working to enhance the Rented experience. Future updates may include:
-
-- **User Profiles:** Create profiles to share your renting experiences and connect with other users.
-
-- **Item Offers:** Leave offers and messages for user listtings you like.
 
 - **Expanded Catalog:** Regularly update our catalog with a wider range of items to meet diverse needs.
 
