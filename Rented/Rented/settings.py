@@ -139,6 +139,12 @@ LOGIN_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+LOCALE_PATHS = [
+    BASE_DIR / 'Rented' / 'locale',
+]
+
 try:
     from .local_settings import *
 except ImportError:

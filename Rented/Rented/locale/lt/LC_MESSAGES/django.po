@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-29 09:25+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+#: offers/templates/offers/my_offers.html:3
+msgid "Offers"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:5
+msgid "Incoming Offers"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:11
+#: offers/templates/offers/my_offers.html:44
+msgid "From"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:12
+#: offers/templates/offers/my_offers.html:29
+#: offers/templates/offers/my_offers.html:45
+#: offers/templates/offers/offer_details.html:9
+msgid "Listing"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:13
+#: offers/templates/offers/my_offers.html:30
+#: offers/templates/offers/my_offers.html:46
+#: offers/templates/offers/offer_details.html:10
+msgid "Price"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:14
+#: offers/templates/offers/offer_details.html:25
+msgid "Accept"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:15
+#: offers/templates/offers/offer_details.html:28
+msgid "Reject"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:19
+msgid "No incoming offers"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:23
+msgid "Sent Offers"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:28
+msgid "To"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:31
+#: offers/templates/offers/my_offers.html:47
+#: offers/templates/offers/offer_details.html:14
+msgid "Status"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:34
+msgid "No sent offers"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:38
+msgid "Order History"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:51
+msgid "No order history"
+msgstr ""
+
+#: offers/templates/offers/my_offers.html:56
+msgid "Create Offer"
+msgstr ""
+
+#: offers/templates/offers/offer_details.html:3
+#: offers/templates/offers/offer_details.html:5
+msgid "Offer Details"
+msgstr ""
+
+#: offers/templates/offers/offer_details.html:6
+msgid "Created at"
+msgstr ""
+
+#: offers/templates/offers/offer_details.html:7
+msgid "Sender"
+msgstr ""
+
+#: offers/templates/offers/offer_details.html:8
+msgid "Receiver"
+msgstr ""
+
+#: offers/templates/offers/offer_details.html:11
+msgid "Duration (Days)"
+msgstr ""
+
+#: offers/templates/offers/offer_details.html:12
+msgid "Message"
+msgstr ""
+
+#: offers/templates/offers/offer_details.html:13
+msgid "Start at"
+msgstr ""
+
+#: offers/templates/offers/offer_details.html:16
+msgid "Back"
+msgstr ""
+
+#: offers/templates/offers/offer_details.html:20
+msgid "Create new"
+msgstr ""

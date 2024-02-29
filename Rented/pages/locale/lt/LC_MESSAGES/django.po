@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-26 10:14+0000\n"
+"POT-Creation-Date: 2024-02-29 09:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian <LL@li.org>\n"
@@ -18,53 +18,183 @@ msgstr ""
 msgid "pages"
 msgstr "puslapiai"
 
-#: pages/models.py:7
+#: pages/models.py:8
 msgid "name"
 msgstr "vardas"
 
-#: pages/models.py:8
+#: pages/models.py:9
 msgid "description"
 msgstr "aprašymas"
 
-#: pages/models.py:9
+#: pages/models.py:10
 msgid "price"
 msgstr "kaina"
 
-#: pages/models.py:10
+#: pages/models.py:11
 msgid "created at"
 msgstr "sukurta"
 
-#: pages/models.py:11
+#: pages/models.py:12
 msgid "updated at"
 msgstr "atnaujinta"
 
-#: pages/models.py:12
+#: pages/models.py:13
 msgid "is available"
 msgstr "yra prieinama"
 
-#: pages/models.py:13
+#: pages/models.py:14
 msgid "brand"
 msgstr "prekės ženklas"
 
-#: pages/models.py:16
+#: pages/models.py:18
 msgid "owner"
 msgstr "savinojas"
 
-#: pages/models.py:22 pages/views.py:34
+#: pages/models.py:24 pages/views.py:57
 msgid "listing"
 msgstr "pasiūlymas"
 
-#: pages/models.py:23 pages/templates/base.html:17
+#: pages/models.py:25 pages/templates/base.html:23
 msgid "listings"
 msgstr "pasiūlymai"
 
-#: pages/templates/base.html:16
-msgid "main"
-msgstr "pagrindinis"
+#: pages/templates/base.html:18
+msgid "shop"
+msgstr ""
 
-#: pages/templates/base.html:40
+#: pages/templates/base.html:20
+#, fuzzy
+#| msgid "listings"
+msgid "my listings"
+msgstr "pasiūlymai"
+
+#: pages/templates/base.html:21
+msgid "my offers"
+msgstr ""
+
+#: pages/templates/base.html:31
+msgid "admin"
+msgstr ""
+
+#: pages/templates/base.html:33
+msgid "log out"
+msgstr ""
+
+#: pages/templates/base.html:35
+msgid "log in"
+msgstr ""
+
+#: pages/templates/base.html:36
+msgid "sign up"
+msgstr ""
+
+#: pages/templates/base.html:48
 msgid "Do your own research"
 msgstr "Atlikite savo tyrimą"
+
+#: pages/templates/listings/listing_create.html:2
+#, fuzzy
+#| msgid "created at"
+msgid "create a listing at"
+msgstr "sukurta"
+
+#: pages/templates/listings/listing_create.html:4
+#, fuzzy
+#| msgid "created at"
+msgid "create a listings"
+msgstr "sukurta"
+
+#: pages/templates/listings/listing_create.html:8
+#, fuzzy
+#| msgid "created at"
+msgid "create"
+msgstr "sukurta"
+
+#: pages/templates/listings/listing_delete.html:2
+#, fuzzy
+#| msgid "listing"
+msgid "deleting"
+msgstr "pasiūlymas"
+
+#: pages/templates/listings/listing_delete.html:4
+#, fuzzy
+#| msgid "listing"
+msgid "deleting listing"
+msgstr "pasiūlymas"
+
+#: pages/templates/listings/listing_delete.html:9
+msgid "are you sure you want to delete listing"
+msgstr ""
+
+#: pages/templates/listings/listing_delete.html:11
+msgid "listing will be deleted permanently"
+msgstr ""
+
+#: pages/templates/listings/listing_delete.html:14
+#: pages/templates/listings/listing_update.html:18
+msgid "confirm"
+msgstr ""
+
+#: pages/templates/listings/listing_delete.html:15
+msgid "cancel"
+msgstr ""
+
+#: pages/templates/listings/listing_details.html:12
+#, fuzzy
+#| msgid "is available"
+msgid "No picture available"
+msgstr "yra prieinama"
+
+#: pages/templates/listings/listing_details.html:15
+#, fuzzy
+#| msgid "Listings"
+msgid "Listing Owner"
+msgstr "Pasiūlymai"
+
+#: pages/templates/listings/listing_details.html:17
+#, fuzzy
+#| msgid "price"
+msgid "Price"
+msgstr "kaina"
+
+#: pages/templates/listings/listing_details.html:17
+#: pages/templates/listings/my_listings.html:12 pages/templates/shop.html:18
+msgid "per day"
+msgstr ""
+
+#: pages/templates/listings/listing_details.html:20
+#, fuzzy
+#| msgid "created at"
+msgid "Created"
+msgstr "sukurta"
+
+#: pages/templates/listings/listing_details.html:22
+#, fuzzy
+#| msgid "updated at"
+msgid "Updated"
+msgstr "atnaujinta"
+
+#: pages/templates/listings/listing_details.html:27
+msgid "Back"
+msgstr ""
+
+#: pages/templates/listings/listing_details.html:30
+#, fuzzy
+#| msgid "listing"
+msgid "Create listing"
+msgstr "pasiūlymas"
+
+#: pages/templates/listings/listing_details.html:33
+msgid "Send offer"
+msgstr ""
+
+#: pages/templates/listings/listing_details.html:37
+msgid "Edit"
+msgstr ""
+
+#: pages/templates/listings/listing_details.html:40
+msgid "Delete"
+msgstr ""
 
 #: pages/templates/listings/listing_list.html:5
 msgid "Listings"
@@ -74,14 +204,113 @@ msgstr "Pasiūlymai"
 msgid "No listings found"
 msgstr "Pasiūlymų nerasta"
 
-#: pages/views.py:36
+#: pages/templates/listings/listing_list.html:18
+#: pages/templates/listings/my_listings.html:17
+#, fuzzy
+#| msgid "created at"
+msgid "Create new"
+msgstr "sukurta"
+
+#: pages/templates/listings/listing_update.html:5
+#, fuzzy
+#| msgid "listing"
+msgid "editing"
+msgstr "pasiūlymas"
+
+#: pages/templates/listings/listing_update.html:9
+#, fuzzy
+#| msgid "listing"
+msgid "editing listing"
+msgstr "pasiūlymas"
+
+#: pages/templates/listings/my_listings.html:5
+#, fuzzy
+#| msgid "Listings"
+msgid "My Listings"
+msgstr "Pasiūlymai"
+
+#: pages/templates/main.html:3
+msgid "Main"
+msgstr ""
+
+#: pages/templates/main.html:10
+msgid ""
+"Welcome to Rented, your go-to platform for item rental. We believe in making "
+"life more convenient by providing a platform where users can easily rent "
+"items they need for a short period, saving both money and resources."
+msgstr ""
+
+#: pages/templates/main.html:13
+msgid ""
+"At Rented, we envision a world where sharing resources is a common practice, "
+"reducing waste and promoting a sustainable lifestyle. We strive to connect "
+"people and enable them to share items, fostering a sense of community and "
+"environmental responsibility."
+msgstr ""
+
+#: pages/templates/main.html:16
+#, fuzzy
+#| msgid "Listings"
+msgid "Listing count"
+msgstr "Pasiūlymai"
+
+#: pages/templates/main.html:17
+msgid "User count"
+msgstr ""
+
+#: pages/templates/main.html:18
+msgid "Offer count"
+msgstr ""
+
+#: pages/templates/shop.html:3
+msgid "Main Page"
+msgstr ""
+
+#: pages/templates/shop.html:5
+msgid "Shop"
+msgstr ""
+
+#: pages/templates/shop.html:19
+msgid "Uploaded by"
+msgstr ""
+
+#: pages/templates/shop.html:20
+#, fuzzy
+#| msgid "brand"
+msgid "Brand"
+msgstr "prekės ženklas"
+
+#: pages/views.py:59
 msgid "marked as"
 msgstr "pažymėtas kaip"
 
-#: pages/views.py:37
+#: pages/views.py:60
 msgid "available"
 msgstr "prieinamas"
 
-#: pages/views.py:37
+#: pages/views.py:60
 msgid "unavailable"
 msgstr "neprieinamas"
+
+#: pages/views.py:63
+msgid "permission error"
+msgstr ""
+
+#: pages/views.py:63
+msgid "you must be the owner of listing"
+msgstr ""
+
+#: pages/views.py:80
+msgid "listing created successfully"
+msgstr ""
+
+#: pages/views.py:97
+msgid "listing updated successfully"
+msgstr ""
+
+#: pages/views.py:112
+msgid "listing deleted successfully"
+msgstr ""
+
+#~ msgid "main"
+#~ msgstr "pagrindinis"

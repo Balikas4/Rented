@@ -22,7 +22,7 @@ class Offer(models.Model):
     message = models.TextField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default=PENDING)
     created_at = models.DateTimeField(auto_now_add=True)
-    start_date = models.DateField(default=timezone.now())
+    start_date = models.DateField(default=timezone.now)
 
     def __str__(self):
         return f"Offer from {self.sender.username} to {self.receiver.username} for {self.listing.name}"
