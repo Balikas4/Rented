@@ -2,16 +2,15 @@
 {% load static %}{% load i18n %}
 {% block title %}{{ block.super }} {% trans "Offers" %}{% endblock title %}
 {% block content %}
-  <h1>{% trans "Offers" %}</h1>
-
   <h2>{% trans "Incoming Offers" %}</h2>
   <ul>
     {% for offer in incoming_offers %}
     {% if offer.status == 'pending' %}
       <li>
+        <a href="{% url 'offers:offer_details' pk=offer.pk %}">{{ offer.created_at }}</a>
         {% trans "From" %}: {{ offer.sender.username }}
         {% trans "Listing" %}: <a href="{% url 'listing_detail' pk=offer.listing.pk %}">{{ offer.listing.name }}</a>
-        {% trans "Price" %}: {{ offer.price }}
+        {% trans "Price" %}: {{ offer.listing.price }}
         <a href="{% url 'offers:accept_offer' pk=offer.pk %}">{% trans "Accept" %}</a>
         <a href="{% url 'offers:reject_offer' pk=offer.pk %}">{% trans "Reject" %}</a>
       </li>
@@ -25,9 +24,10 @@
   <ul>
     {% for offer in sent_offers %}
       <li>
+        <a href="{% url 'offers:offer_details' pk=offer.pk %}">{{ offer.created_at }}</a>
         {% trans "To" %}: {{ offer.receiver.username }}
         {% trans "Listing" %}: <a href="{% url 'listing_detail' pk=offer.listing.pk %}">{{ offer.listing.name }}</a>
-        {% trans "Price" %}: {{ offer.price }}
+        {% trans "Price" %}: {{ offer.listing.price }}
         {% trans "Status" %}: {{ offer.get_status_display }}
       </li>
     {% empty %}
@@ -40,9 +40,10 @@
     {% for offer in incoming_offers %}
       {% if offer.status != 'pending' %}
         <li>
+          <a href="{% url 'offers:offer_details' pk=offer.pk %}">{{ offer.created_at }}</a>
           {% trans "From" %}: {{ offer.sender.username }}
           {% trans "Listing" %}: <a href="{% url 'listing_detail' pk=offer.listing.pk %}">{{ offer.listing.name }}</a>
-          {% trans "Price" %}: {{ offer.price }}
+          {% trans "Price" %}: {{ offer.listing.price }}
           {% trans "Status" %}: {{ offer.get_status_display }}
         </li>
       {% endif %}

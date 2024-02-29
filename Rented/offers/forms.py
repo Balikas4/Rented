@@ -6,7 +6,10 @@ from .models import Offer, Listing
 class OfferForm(forms.ModelForm):
     class Meta:
         model = Offer
-        fields = ['receiver', 'listing', 'message', 'duration_days']
+        fields = ['receiver', 'listing', 'message', 'duration_days', 'start_date']
+        widgets = {
+            'start_date': forms.DateInput(attrs={'type': 'date'}),
+        }
 
     def __init__(self, user, *args, **kwargs):
         super(OfferForm, self).__init__(*args, **kwargs)

@@ -7,7 +7,9 @@
   {% if sent_offers %}
     <ul>
       {% for offer in sent_offers %}
+      <a href="{% url 'offers:offer_details' pk=offer.pk %}">
         <li>{{ offer.receiver.username }} - {{ offer.listing.name }} - {{ offer.created_at }}</li>
+      </a>
       {% endfor %}
     </ul>
   {% else %}

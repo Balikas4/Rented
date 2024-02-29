@@ -26,7 +26,6 @@ def offer_sent(request):
 
 @login_required
 def accept_offer(request, pk):
-    # Implement the logic for accepting an offer
     offer = get_object_or_404(Offer, pk=pk)
     if offer.receiver == request.user and offer.status == 'pending':
         offer.status = 'accepted'
@@ -54,10 +53,18 @@ def reject_offer(request, pk):
 def my_offers(request):
     incoming_offers = Offer.objects.filter(receiver=request.user)
     sent_offers = Offer.objects.filter(sender=request.user)
-
     context = {
         'incoming_offers': incoming_offers,
         'sent_offers': sent_offers,
     }
 
     return render(request, 'offers/my_offers.html', context)
+
+def offer_details(request, pk):
+    offer = get_object_or_404(Offer, pk=pk)
+    if request.user != offer.sender and request.user != offer.receiver:
+        return render(request, 'offers/offer_details_permission_denied.html')
+    context = {
+        'offer': offer,
+    }
+    return render(request, 'offers/offer_details.html', context)

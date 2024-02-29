@@ -11,6 +11,9 @@
 {% else %}
   <p>{% trans "No picture available" %}</p>
 {% endif %}
+  <p><a href="{% url 'user_detail' username=listing.owner.username %}">
+  {% trans "Listing Owner" %}: {{ listing.owner.username }}
+  </a></p>
   <p>{% trans "Price" %}: {{ listing.price }} {% trans "per day" %}</p>
   <p>{{ listing.description }}</p>
   <p>
@@ -24,7 +27,10 @@
       {% trans "Back"|capfirst %}
     </a>
     <a class="button" href="{% url 'listing_create' %}">
-      {% trans "Create new"|capfirst %}
+      {% trans "Create listing"|capfirst %}
+    </a>
+    <a class="button" href="{% url 'offers:send_offer' %}">
+      {% trans "Send offer"|capfirst %}
     </a>
   {% if listing.owner == request.user %}
       <a class="button" href="{% url 'listing_update' listing.pk %}">
